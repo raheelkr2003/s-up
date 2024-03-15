@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Sign Up Form</title>
+
+</head>
+<body>
+    <div class="main">
+        <div class="heading1"><h1>Sign Up</h1></div>
+        <div class="button">
+            <a href="#"><h3>Login</h3></a>
+            <a href="#"><h3>Sign Up</h3></a>
+        </div>
+        <div class="allinput">
+            <input type="text" name="name" placeholder="Name">
+            <input type="text" name="email" placeholder="Email Address">
+            <input type="text" name="password" placeholder="Password">
+            <input type="text" name="confirm_password" placeholder="Confirm Password">
+        </div>
+        <div class="last1">
+            <a href="#" onclick="return validateForm()"><h3>Sign Up</h3></a>
+        </div>
+        <div class="last2">
+            <p>Already Have an Account? <a href="#">Login</a></p>
+        </div>
+    </div>
+    <script>
+        function validateForm() {
+            var name = document.querySelector('input[name="name"]').value;
+            var email = document.querySelector('input[name="email"]').value;
+            var password = document.querySelector('input[name="password"]').value;
+            var confirmPassword = document.querySelector('input[name="confirm_password"]').value;
+    
+            if (name === '') {
+                alert('Please fill in the Name field');
+                return false;
+            }
+            if (!email.endsWith('@gmail.com')) {
+                alert('Incorrect email. Please use a Gmail address.');
+                return false;
+            }
+            if (password === '') {
+                alert('Please fill in the Password field');
+                return false;
+            }
+            if (confirmPassword === '') {
+                alert('Please fill in the Confirm Password field');
+                return false;
+            }
+    
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please enter the same password in both fields.');
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
